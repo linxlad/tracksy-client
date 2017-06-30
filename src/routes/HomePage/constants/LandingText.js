@@ -1,1 +1,0 @@
-export const BRANDING_SUBHEADER = 'An online platform for unsigned and inspiring musicians to<br\/>upload and publish music for free. Take back control.';

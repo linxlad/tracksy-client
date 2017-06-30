@@ -2,10 +2,12 @@
   height: 500px;
   position: relative;
 
-  @media only screen and (max-width: 348px) {
+  @media only screen and (max-width: 770px) {
     .branding {
+      top: 0!important;
       left: 0!important;
       transform: translate(0%,-50%)!important;
+      white-space: normal;
     }
   }
 
@@ -15,6 +17,7 @@
     transform: translate(-50%,-50%);
     vertical-align: middle;
     max-width: 880px;
+    white-space: nowrap;
 
     @media only screen and (max-width: 770px) {
       .iphone7PlusImage {
@@ -32,11 +35,13 @@
 
     .ctaContainer {
       position: relative;
+      width: 100%;
 
       .cta {
         position: absolute;
-        top: 50%;
-        transform: translate(-0%,-50%);
+        //top: 50%;
+        //transform: translate(-0%,-50%);
+        transform: translateY(50%);
         vertical-align: middle;
 
         .logo {
@@ -46,7 +51,6 @@
 
         .sub.header {
           font-size: 20px;
-          white-space: nowrap;
         }
       }
     }

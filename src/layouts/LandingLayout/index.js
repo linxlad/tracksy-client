@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 import { Container, Header, Grid, Image, Button } from 'semantic-ui-react';
 import Layout from 'antd/lib/layout';
 import { MultiLine } from '../../components/MultiLine';
+import { colours } from '../../constants/colours';
 import './LandingLayout.scss';
 import iPhone from './assets/images/iphone-7-plus-white.png';
 import { BRANDING_SUBHEADER } from './constants/LandingText';
@@ -27,6 +28,7 @@ export class LandingLayout extends PureComponent {
 
   CallToAction = () => {
     const { ctaHover } = this.state;
+    const colour = colours[Math.floor(Math.random() * colours.length)];
     let basicType = true;
 
     if (ctaHover) {
@@ -38,7 +40,7 @@ export class LandingLayout extends PureComponent {
         onMouseOver={() => this.handleCtaMouseOver()}
         onMouseOut={() => this.handleCtaMouseOut()}
         onClick={() => browserHistory.push('/signup')}
-        color={this.state.ctaBgColour} className="callToAction"
+        color={colour} className="callToAction"
         size='huge'
         basic={basicType}>Sign Up</Button>
     );

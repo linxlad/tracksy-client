@@ -2,12 +2,12 @@
   .homeSlice-media{
     text-align: right;
   }
+
   .homeSlice-context {
-    //position: absolute!important;
     top: 50%;
-    //transform: translateY(-50%);
-    transform: translateY(-25%);
+    transform: translateY(-50%);
     vertical-align: middle!important;
+    position: absolute!important;
 
     h2 {
       font-size: 34px;
@@ -18,5 +18,23 @@
       font-size: 18px;
       //white-space: nowrap;
     }
+
+    .homeSlice-cta {
+      button.homeSlice-cta--button {
+        //width: 35%;
+        margin: 1em auto;
+        border-radius: 500px;
+        text-transform: uppercase;
+        min-width: 150px;
+      }
+    }
+  }
+
+  .right {
+    right: 0;
+  }
+
+  .left {
+    left: 0;
   }
 }

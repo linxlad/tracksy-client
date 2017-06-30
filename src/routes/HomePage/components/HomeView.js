@@ -3,7 +3,20 @@ import './HomeView.scss';
 import LandingLayout from '../../../layouts/LandingLayout';
 import { Divider } from 'semantic-ui-react';
 import { HomeSlice } from './HomeSlice';
-import sliceImage1 from '../assets/images/hans-vivek-176134.jpg';
+import { Interjection } from './Interjection';
+import sliceImage1 from '../assets/images/spotlight01.jpg';
+import sliceImage2 from '../assets/images/spotlight02.jpg';
+import sliceImage3 from '../assets/images/spotlight03.jpg';
+import sliceImage4 from '../assets/images/spotlight04.jpg';
+import sliceImage5 from '../assets/images/spotlight05.jpg';
+import {
+  HOMESLICE_ONE_HEADING,
+  HOMESLICE_ONE_TEXT,
+  HOMESLICE_TWO_HEADING,
+  HOMESLICE_TWO_TEXT,
+  HOMESLICE_THREE_HEADING,
+  HOMESLICE_THREE_TEXT
+} from '../constants/HomeText';
 
 export class HomeView extends PureComponent {
   render() {
@@ -12,13 +25,28 @@ export class HomeView extends PureComponent {
         <LandingLayout>
           <Divider/>
           <HomeSlice
-            heading="Simple and free"
-            image={sliceImage1}
-            context="Getting your music online can be difficult and costly so we've made it easy and free. Musicians
-                    already have to pay out for travel, equipment, rehearsal rooms, recording, mixing, mastering and
-                    distribution... so with no sign-up or publishing fees, you're free to use tracksy and start making
-                    money for your hard work."
-            reverse={false} />
+            heading={HOMESLICE_ONE_HEADING}
+            image={sliceImage5}
+            context={HOMESLICE_ONE_TEXT}
+            reverse={false}
+          />
+          <Divider/>
+          <HomeSlice
+            heading={HOMESLICE_TWO_HEADING}
+            image={sliceImage2}
+            context={HOMESLICE_TWO_TEXT}
+            reverse={true}
+          />
+          <Divider/>
+          <HomeSlice
+            heading={HOMESLICE_THREE_HEADING}
+            image={sliceImage3}
+            context={HOMESLICE_THREE_TEXT}
+            reverse={false}
+          />
+          <Divider/>
+          <Interjection/>
+          <Divider/>
         </LandingLayout>
       </div>
     );
