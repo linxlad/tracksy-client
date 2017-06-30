@@ -12,23 +12,42 @@ const { Footer, Content } = Layout;
 
 const initialState = {
   ctaHover: false,
-  ctaBgColour: null
+  ctaColour: null
 };
 
 export class LandingLayout extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = initialState;
+    this.state = {
+      ...initialState,
+      ctaColour: this.assignRandomColour()
+    };
   }
 
   static propTypes = {
     children: PropTypes.node
   };
 
+  assignRandomColour = () => {
+    return colours[Math.floor(Math.random() * colours.length)];
+  };
+
+  handleCtaMouseOver = () => {
+    this.setState({
+      ctaHover: true
+    });
+  };
+
+  handleCtaMouseOut = () => {
+    this.setState({
+      ctaColour: colours[Math.floor(Math.random() * colours.length)],
+      ctaHover: initialState.ctaHover
+    });
+  };
+
   CallToAction = () => {
     const { ctaHover } = this.state;
-    const colour = colours[Math.floor(Math.random() * colours.length)];
     let basicType = true;
 
     if (ctaHover) {
@@ -40,24 +59,10 @@ export class LandingLayout extends PureComponent {
         onMouseOver={() => this.handleCtaMouseOver()}
         onMouseOut={() => this.handleCtaMouseOut()}
         onClick={() => browserHistory.push('/signup')}
-        color={colour} className="callToAction"
+        color={this.state.ctaColour} className="callToAction"
         size='huge'
         basic={basicType}>Sign Up</Button>
     );
-  };
-
-  handleCtaMouseOver = () => {
-    this.setState({
-      ctaHover: true,
-      ctaBgColour: 'green'
-    });
-  };
-
-  handleCtaMouseOut = () => {
-    this.setState({
-      ctaHover: initialState.ctaHover,
-      ctaBgColour: initialState.ctaBgColour
-    });
   };
 
   render() {

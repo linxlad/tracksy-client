@@ -7,15 +7,35 @@ import './HomeSlice.scss';
 
 const initialState = {
   ctaHover: false,
-  ctaBgColour: null
+  ctaColour: null
 };
 
 export class HomeSlice extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = initialState;
+    this.state = {
+      ...initialState,
+      ctaColour: this.assignRandomColour()
+    };
   }
+
+  assignRandomColour = () => {
+    return colours[Math.floor(Math.random() * colours.length)];
+  };
+
+  handleCtaMouseOver = () => {
+    this.setState({
+      ctaHover: true
+    });
+  };
+
+  handleCtaMouseOut = () => {
+    this.setState({
+      ctaColour: colours[Math.floor(Math.random() * colours.length)],
+      ctaHover: initialState.ctaHover
+    });
+  };
 
   CallToAction = () => {
     const { ctaHover } = this.state;
@@ -31,25 +51,11 @@ export class HomeSlice extends PureComponent {
         onMouseOver={() => this.handleCtaMouseOver()}
         onMouseOut={() => this.handleCtaMouseOut()}
         onClick={() => browserHistory.push('/')}
-        color={colour}
+        color={this.state.ctaColour}
         className="homeSlice-cta--button"
         size='large'
         basic={basicType}>Sign Up</Button>
     );
-  };
-
-  handleCtaMouseOver = () => {
-    this.setState({
-      ctaHover: true,
-      ctaBgColour: 'green'
-    });
-  };
-
-  handleCtaMouseOut = () => {
-    this.setState({
-      ctaHover: initialState.ctaHover,
-      ctaBgColour: initialState.ctaBgColour
-    });
   };
 
   render() {

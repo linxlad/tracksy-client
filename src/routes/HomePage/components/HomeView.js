@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react';
+import { Divider } from 'semantic-ui-react';
 import './HomeView.scss';
 import LandingLayout from '../../../layouts/LandingLayout';
-import { Divider } from 'semantic-ui-react';
+import { SimpleImageSlider } from '../../../components/SimpleImageSlider';
 import { HomeSlice } from './HomeSlice';
 import { Interjection } from './Interjection';
-import sliceImage1 from '../assets/images/spotlight01.jpg';
 import sliceImage2 from '../assets/images/spotlight02.jpg';
 import sliceImage3 from '../assets/images/spotlight03.jpg';
-import sliceImage4 from '../assets/images/spotlight04.jpg';
 import sliceImage5 from '../assets/images/spotlight05.jpg';
 import {
   HOMESLICE_ONE_HEADING,
@@ -15,7 +14,11 @@ import {
   HOMESLICE_TWO_HEADING,
   HOMESLICE_TWO_TEXT,
   HOMESLICE_THREE_HEADING,
-  HOMESLICE_THREE_TEXT
+  HOMESLICE_THREE_TEXT,
+  INTERJECTION_ONE_HEADING,
+  INTERJECTION_ONE_TEXT,
+  INTERJECTION_TWO_HEADING,
+  INTERJECTION_TWO_TEXT
 } from '../constants/HomeText';
 
 export class HomeView extends PureComponent {
@@ -45,7 +48,9 @@ export class HomeView extends PureComponent {
             reverse={false}
           />
           <Divider/>
-          <Interjection/>
+          <Interjection heading={INTERJECTION_ONE_HEADING} text={INTERJECTION_ONE_TEXT}/>
+          {SimpleImageSlider([1, 2, 3, 4, 5, 6])}
+          <Interjection heading={INTERJECTION_TWO_HEADING} text={INTERJECTION_TWO_TEXT}/>
           <Divider/>
         </LandingLayout>
       </div>
