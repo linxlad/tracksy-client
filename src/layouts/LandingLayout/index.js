@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
 import { Container, Header, Grid, Image, Button } from 'semantic-ui-react';
 import Layout from 'antd/lib/layout';
+import { MultiLine } from '../../components/MultiLine';
 import './LandingLayout.scss';
-const { Footer, Content } = Layout;
 import iPhone from './assets/images/iphone-7-plus-white.png';
+import { BRANDING_SUBHEADER } from './constants/LandingText';
+const { Footer, Content } = Layout;
 
 const initialState = {
   ctaHover: false,
@@ -68,10 +70,7 @@ export class LandingLayout extends PureComponent {
                     <Grid.Column className="ctaContainer" floated='left'>
                       <div className="cta">
                         <Header as='h1' className="logo">tracksy.</Header>
-                        <Header.Subheader as='p'>
-                          An online platform for unsigned and inspiring musicians to<br/>
-                          upload and publish music for free. Take back control.
-                        </Header.Subheader>
+                        <Header.Subheader as='p'>{MultiLine(BRANDING_SUBHEADER)}</Header.Subheader>
                         {this.CallToAction()}
                       </div>
                     </Grid.Column>

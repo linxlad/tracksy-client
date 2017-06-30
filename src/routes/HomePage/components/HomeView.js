@@ -12,12 +12,13 @@ export class HomeView extends PureComponent {
         <LandingLayout>
           <Divider/>
           <HomeSlice
+            heading="Simple and free"
             image={sliceImage1}
             context="Getting your music online can be difficult and costly so we've made it easy and free. Musicians
                     already have to pay out for travel, equipment, rehearsal rooms, recording, mixing, mastering and
                     distribution... so with no sign-up or publishing fees, you're free to use tracksy and start making
                     money for your hard work."
-            reverse={true} />
+            reverse={false} />
         </LandingLayout>
       </div>
     );
