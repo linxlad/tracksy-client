@@ -1,0 +1,89 @@
+.ant-layout-header .logo {
+  width: 120px;
+  height: 31px;
+  background: #333;
+  border-radius: 6px;
+  margin: 16px 24px 16px 0;
+  float: left;
+
+  span {
+    position: absolute;
+    top: 0;
+    color: #ffffff;
+    padding: 0 0 0 38px;
+    font-size: 14px;
+  }
+}
+
+.ant-layout {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  overflow: auto;
+  background: #ececec
+}
+.ant-layout.ant-layout-has-sider {
+  flex-direction: row
+}
+.ant-layout-footer,
+.ant-layout-header {
+  flex: 0 0 auto
+}
+.ant-layout-header {
+  background: #404040;
+  padding: 0 50px;
+  height: 64px;
+  line-height: 64px
+}
+.ant-layout-footer {
+  padding: 24px 50px;
+  color: rgba(0, 0, 0, .65);
+  font-size: 12px
+}
+.ant-layout-content {
+  flex: auto
+}
+.ant-layout-sider {
+  transition: all .3s cubic-bezier(.215, .61, .355, 1);
+  position: relative;
+  background: #404040;
+  min-width: 0
+}
+.ant-layout-sider-has-trigger {
+  padding-bottom: 48px
+}
+.ant-layout-sider-right {
+  order: 1
+}
+.ant-layout-sider-trigger {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  cursor: pointer;
+  height: 48px;
+  line-height: 48px;
+  background: rgba(64, 64, 64, .88);
+  color: #fff
+}
+.ant-layout-sider-zero-width>* {
+  overflow: hidden
+}
+.ant-layout-sider-zero-width-trigger {
+  position: absolute;
+  top: 64px;
+  right: -36px;
+  text-align: center;
+  width: 36px;
+  height: 42px;
+  line-height: 42px;
+  background: #404040;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background .3s ease
+}
+.ant-layout-sider-zero-width-trigger:hover {
+  background: #535353
+}

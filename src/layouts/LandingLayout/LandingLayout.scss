@@ -1,0 +1,76 @@
+.main-header {
+  height: 500px;
+  position: relative;
+
+  @media only screen and (max-width: 348px) {
+    .branding {
+      left: 0!important;
+      transform: translate(0%,-50%)!important;
+    }
+  }
+
+  .branding {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    vertical-align: middle;
+    max-width: 880px;
+
+    @media only screen and (max-width: 770px) {
+      .iphone7PlusImage {
+        .iPhone7Plus {
+          visibility: hidden;
+        }
+      }
+    }
+
+    .iPhone7Plus {
+      margin-left: auto;
+      width: 200px; /* you can use % */
+      height: auto;
+    }
+
+    .ctaContainer {
+      position: relative;
+
+      .cta {
+        position: absolute;
+        top: 50%;
+        transform: translate(-0%,-50%);
+        vertical-align: middle;
+
+        .logo {
+          font-size: 46px;
+          font-weight: lighter;
+        }
+
+        .sub.header {
+          font-size: 20px;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .cta >button.callToAction {
+      //width: 35%;
+      margin: 1em auto;
+      border-radius: 500px;
+      text-transform: uppercase;
+      min-width: 180px;
+    }
+  }
+}
+
+.ant-layout-footer {
+  padding: 24px 50px;
+  color: rgba(0, 0, 0, .65);
+  font-size: 12px
+}
+.ant-layout-content {
+  flex: auto
+}
+
+.ant-layout-footer {
+  text-align: center;
+  font-weight: 600;
+}
