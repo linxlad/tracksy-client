@@ -7,6 +7,7 @@ import { MultiLine } from '../../components/MultiLine';
 import { colours } from '../../constants/colours';
 import './LandingLayout.scss';
 import iPhone from './assets/images/iphone-7-plus-white.png';
+import iPhoneScreen from './assets/images/listen-gesture-music-app-screens-02.jpg';
 import { BRANDING_SUBHEADER } from './constants/LandingText';
 const { Footer, Content } = Layout;
 
@@ -83,6 +84,7 @@ export class LandingLayout extends PureComponent {
                     </Grid.Column>
                     <Grid.Column className="iphone7PlusImage" floated='right'>
                       <Image className="iPhone7Plus" src={iPhone} fluid/>
+                      <Image className="iPhone7Plus-screen" src={iPhoneScreen}/>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>

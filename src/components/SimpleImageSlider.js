@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Slider from 'react-slick';
 
-export const SimpleImageSlider = (images) => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    autoplay: true,
-    speed: 1000,
-    lazyLoad: true,
-    pauseOnHover: true,
-    slidesToShow: images.length,
-    slidesToScroll: 1
+export class SimpleImageSlider extends PureComponent {
+  renderImage = (image, key) => {
+    return <div key={key}><img src={image} /></div>;
   };
 
-  const sliderImages = images.map((item, key) => {
-    return <div key={key}><img src='http://via.placeholder.com/400x300' /></div>;
-  });
+  render() {
+    const { images } = this.props;
+    const settings = {
+      dots: false,
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      lazyLoad: true,
+      pauseOnHover: true,
+      slidesToShow: 6,
+      slidesToScroll: 1
+    };
 
-  return (
-    <Slider {...settings}>
-      {sliderImages}
-    </Slider>
-  );
-};
-
-export default SimpleImageSlider;
+    return (
+      <Slider {...settings}>
+        { images.map((image, key) => this.renderImage(image, key)) }
+      </Slider>
+    );
+  }
+}

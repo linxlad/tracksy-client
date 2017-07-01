@@ -39,7 +39,6 @@ export class HomeSlice extends PureComponent {
 
   CallToAction = () => {
     const { ctaHover } = this.state;
-    const colour = colours[Math.floor(Math.random() * colours.length)];
     let basicType = true;
 
     if (ctaHover) {
@@ -54,7 +53,7 @@ export class HomeSlice extends PureComponent {
         color={this.state.ctaColour}
         className="homeSlice-cta--button"
         size='large'
-        basic={basicType}>Sign Up</Button>
+        basic={basicType}>Learn More</Button>
     );
   };
 

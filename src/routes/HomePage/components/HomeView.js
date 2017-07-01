@@ -25,6 +25,11 @@ import {
 
 export class HomeView extends PureComponent {
   render() {
+    let images = [];
+    for (let i = 0; i < 100; i++) {
+      images.push('http://lorempixel.com/400/250/');
+    }
+
     return (
       <div>
         <LandingLayout>
@@ -50,7 +55,7 @@ export class HomeView extends PureComponent {
             reverse={false}
           />
           <Interjection heading={INTERJECTION_ONE_HEADING} text={INTERJECTION_ONE_TEXT}/>
-          {SimpleImageSlider([1, 2, 3, 4, 5, 6])}
+          <SimpleImageSlider images={images} />
           <Interjection heading={INTERJECTION_TWO_HEADING} text={INTERJECTION_TWO_TEXT}/>
           <Reasons reasons={REASONS} rows={2} iconSize="big" />
         </LandingLayout>
