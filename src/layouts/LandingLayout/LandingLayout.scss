@@ -78,9 +78,9 @@ img.ui.image.iPhone7Plus-screen {
 }
 
 .ant-layout-footer {
-  padding: 24px 50px;
-  color: rgba(0, 0, 0, .65);
-  font-size: 12px
+  padding: 150px 0 50px 0;
+  color: rgba(0,0,0,.65);
+  font-size: 16px;
 }
 .ant-layout-content {
   flex: auto
@@ -89,4 +89,20 @@ img.ui.image.iPhone7Plus-screen {
 .ant-layout-footer {
   text-align: center;
   font-weight: 600;
+
+  .footerIcons {
+    .ui.centre.aligned.grid {
+      margin: 0 auto;
+      display: inherit;
+      .column {
+        padding: 0;
+        width: 4%;
+      }
+    }
+  }
+
+  p {
+    margin-top: 20px;
+    font-weight: lighter;
+  }
 }

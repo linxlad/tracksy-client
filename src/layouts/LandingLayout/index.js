@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
-import { Container, Header, Grid, Image, Button } from 'semantic-ui-react';
+import { Container, Header, Grid, Image, Button, Icon } from 'semantic-ui-react';
 import Layout from 'antd/lib/layout';
 import { MultiLine } from '../../components/MultiLine';
 import { colours } from '../../constants/colours';
@@ -94,7 +94,27 @@ export class LandingLayout extends PureComponent {
 
           {this.props.children}
         </Content>
-        <Footer>@ tracksy music ltd</Footer>
+        <Footer>
+          <div className="footerIcons">
+            <Grid textAlign="centre">
+              <Grid.Column>
+                <Icon size="large" circular name="twitter" />
+              </Grid.Column>
+              <Grid.Column>
+                <Icon size="large" circular name="facebook f" />
+              </Grid.Column>
+              <Grid.Column>
+                <Icon size="large" circular name="instagram" />
+              </Grid.Column>
+              <Grid.Column>
+                <Icon size="large" circular name="mail" />
+              </Grid.Column>
+            </Grid>
+          </div>
+          <p>
+            @ tracksy music ltd
+          </p>
+        </Footer>
       </Container>
     );
   }

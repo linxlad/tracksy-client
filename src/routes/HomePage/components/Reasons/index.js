@@ -20,6 +20,12 @@ export class Reasons extends PureComponent {
    * Pick a random colour from the colour constants.
    */
   assignRandomColour = () => {
+    const colour = colours[Math.floor(Math.random() * colours.length)];
+
+    if (this.state && this.state.iconColour === colour) {
+      return this.state.iconColour;
+    }
+
     return colours[Math.floor(Math.random() * colours.length)];
   };
 
