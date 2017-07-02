@@ -4,7 +4,6 @@ import { Input, Button, Label, Select, Card } from 'semantic-ui-react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import './SignUpForm.scss';
-const colours = ['teal', 'blue', 'violet', 'purple', 'pink'];
 const FormItem = Form.Item;
 
 class SignUpFormComponent extends Component {
@@ -28,10 +27,6 @@ class SignUpFormComponent extends Component {
     });
   };
 
-  assignRandomColour = () => {
-    return colours[Math.floor(Math.random() * colours.length)];
-  };
-
   /**
    * @param event
    */
@@ -48,24 +43,30 @@ class SignUpFormComponent extends Component {
    */
   render() {
     const { getFieldDecorator, getFieldError } = this.props.form;
+    const { colour, ribbons } = this.props;
     const emailHasError = !!getFieldError('email');
     const passwordHasError = !!getFieldError('password');
-    const confirmPasswordHasError = !!getFieldError('password');
-    const bandArtistNameHasError = !!getFieldError('bandArtistName');
+    const artistNameHasError = !!getFieldError('artistName');
     let bandNameField = null;
 
     if (this.props.role === 'artist') {
       bandNameField = (
         <FormItem>
-          <Label color={confirmPasswordHasError ? 'red' : this.props.colour} ribbon>Band or Artist name</Label>
-          {getFieldDecorator('bandArtistName', {
+          <Label
+            style={!ribbons ? {padding: 0} : {}}
+            basic={!ribbons}
+            color={artistNameHasError ? 'red' : colour}
+            ribbon={ribbons}>
+            Artist/Band name
+          </Label>
+          {getFieldDecorator('artistName', {
             rules: [
-              { required: true, message: 'Please enter your band or artist name' },
-              { type: 'string', message: 'Please enter a valid band or artist name' }
+              { required: true, message: 'Please enter your Artist/Band name' },
+              { type: 'string', message: 'Please enter a valid Artist/Band name' }
             ],
             initialValue: ''
           })(
-            <Input fluid type="password" size="huge" error={bandArtistNameHasError}/>
+            <Input fluid type="password" size="huge" error={artistNameHasError}/>
           )}
         </FormItem>
       );
@@ -74,7 +75,13 @@ class SignUpFormComponent extends Component {
     return (
       <Form onSubmit={this.handleSubmit} className="signup-form">
         <FormItem>
-          <Label color={emailHasError ? 'red' : this.props.colour} ribbon>Email</Label>
+          <Label
+            style={!ribbons ? {padding: 0} : {}}
+            basic={!ribbons}
+            color={emailHasError ? 'red' : colour}
+            ribbon={ribbons}>
+            Email
+          </Label>
           {getFieldDecorator('email', {
             rules: [
               { required: true, message: 'Please enter a valid email' },
@@ -86,7 +93,13 @@ class SignUpFormComponent extends Component {
           )}
         </FormItem>
         <FormItem>
-          <Label color={passwordHasError ? 'red' : this.props.colour} ribbon>password</Label>
+          <Label
+            style={!ribbons ? {padding: 0} : {}}
+            basic={!ribbons}
+            color={passwordHasError ? 'red' : colour}
+            ribbon={ribbons}>
+            Password
+          </Label>
           {getFieldDecorator('password', {
             rules: [
               { required: true, message: 'Please enter your password' },
@@ -97,18 +110,6 @@ class SignUpFormComponent extends Component {
             <Input fluid type="password" size="huge" error={passwordHasError}/>
           )}
         </FormItem>
-        <FormItem>
-          <Label color={confirmPasswordHasError ? 'red' : this.props.colour} ribbon>Confirm password</Label>
-          {getFieldDecorator('confirmPassword', {
-            rules: [
-              { required: true, message: 'Please enter your confirm password' },
-              { type: 'string', message: 'Please enter a valid confirm password' }
-            ],
-            initialValue: ''
-          })(
-            <Input fluid type="password" size="huge" error={confirmPasswordHasError}/>
-          )}
-        </FormItem>
         {bandNameField}
         <FormItem>
           <Button
@@ -117,7 +118,7 @@ class SignUpFormComponent extends Component {
             size='huge'
             loading={false}
             className=""
-            color={confirmPasswordHasError ? 'red' : this.props.colour}
+            color={emailHasError || passwordHasError || artistNameHasError ? 'red' : colour}
             basic={!this.state.submitHover}
             fluid >
             Sign Up

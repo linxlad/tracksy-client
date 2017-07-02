@@ -76,7 +76,7 @@ export class SignUpView extends Component {
               </div>
             </Card.Content>
           </Card>
-          <SignUpForm role={this.state.role} colour={this.state.formColour} />
+          <SignUpForm role={this.state.role} colour={this.state.formColour} ribbons={true} />
         </Container>
       </PageLayout>
     );
