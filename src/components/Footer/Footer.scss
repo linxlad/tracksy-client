@@ -1,0 +1,23 @@
+.footer {
+  padding: 150px 0 50px 0;
+  color: rgba(0,0,0,.65);
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+
+  .footer-footerIcons {
+    .ui.centre.aligned.grid {
+      margin: 0 auto;
+      display: inherit;
+      .column {
+        padding: 0;
+        width: 4%;
+      }
+    }
+  }
+
+  p {
+    margin-top: 20px;
+    font-weight: lighter;
+  }
+}

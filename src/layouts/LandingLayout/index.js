@@ -4,12 +4,13 @@ import { browserHistory } from 'react-router';
 import { Container, Header, Grid, Image, Button, Icon } from 'semantic-ui-react';
 import Layout from 'antd/lib/layout';
 import { MultiLine } from '../../components/MultiLine';
-import { colours } from '../../constants/colours';
+import { Footer } from '../../components/Footer';
+import { landingColours as colours } from '../../constants/colours';
 import './LandingLayout.scss';
 import iPhone from './assets/images/iphone-7-plus-white.png';
 import iPhoneScreen from './assets/images/listen-gesture-music-app-screens-02.jpg';
 import { BRANDING_SUBHEADER } from './constants/LandingText';
-const { Footer, Content } = Layout;
+const { Content } = Layout;
 
 const initialState = {
   ctaHover: false,
@@ -94,27 +95,7 @@ export class LandingLayout extends PureComponent {
 
           {this.props.children}
         </Content>
-        <Footer>
-          <div className="footerIcons">
-            <Grid textAlign="centre">
-              <Grid.Column>
-                <Icon size="large" circular name="twitter" />
-              </Grid.Column>
-              <Grid.Column>
-                <Icon size="large" circular name="facebook f" />
-              </Grid.Column>
-              <Grid.Column>
-                <Icon size="large" circular name="instagram" />
-              </Grid.Column>
-              <Grid.Column>
-                <Icon size="large" circular name="mail" />
-              </Grid.Column>
-            </Grid>
-          </div>
-          <p>
-            @ tracksy music ltd
-          </p>
-        </Footer>
+        <Footer/>
       </Container>
     );
   }

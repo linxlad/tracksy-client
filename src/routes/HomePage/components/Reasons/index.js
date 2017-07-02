@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Container, Grid, Icon, Header } from 'semantic-ui-react';
-import { colours } from '../../../../constants/colours';
+import { landingColours as colours } from '../../../../constants/colours';
 import './Reasons.scss';
 
 export class Reasons extends PureComponent {

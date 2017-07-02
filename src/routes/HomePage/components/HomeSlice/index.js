@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { browserHistory } from 'react-router';
 import { Container, Header, Grid, Image, Button} from 'semantic-ui-react';
 import { MultiLine } from '../../../../components/MultiLine';
-import { colours } from './../../../../constants/colours';
+import { landingColours as colours } from './../../../../constants/colours';
 import './HomeSlice.scss';
 
 const initialState = {

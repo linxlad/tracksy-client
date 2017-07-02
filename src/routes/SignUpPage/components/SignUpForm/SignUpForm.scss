@@ -1,0 +1,16 @@
+@import "~antd/lib/form/style/index.css";
+//@import "~antd/lib/input/style/index.css";
+@import "~semantic-ui-css/components/input.css";
+@import "~semantic-ui-css/components/button.css";
+
+.signup-form {
+  .ui.large.ribbon.label {
+    margin-left: 14px;
+  }
+
+  .ui.button {
+    border-radius: 500px;
+    text-transform: uppercase;
+    min-width: 180px;
+  }
+}

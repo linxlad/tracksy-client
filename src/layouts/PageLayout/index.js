@@ -1,26 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { browserHistory } from 'react-router';
+import { Container } from 'semantic-ui-react';
 import Layout from 'antd/lib/layout';
+import { Footer } from '../../components/Footer';
 import './PageLayout.scss';
-const { Header, Footer, Content } = Layout;
+const { Content } = Layout;
 
 export const PageLayout = ({ children }) => (
-  <div>
-    <Layout>
-      <Header style={{ position: 'fixed', width: '100%' }}>
-        <div
-          onClick={() => browserHistory.push('/')} className="logo"
-          style={{ cursor: 'pointer' }}>
-          <span>Logo</span>
-        </div>
-      </Header>
-      <Content style={{ padding: '0 50px', marginTop: 64 }}>
-        {children}
-      </Content>
-      <Footer>Nathan Daly {'<justlikephp@gmail.com>'}</Footer>
-    </Layout>
-  </div>
+  <Container fluid>
+    <Content>
+      {children}
+    </Content>
+    <Footer />
+  </Container>
 );
 
 PageLayout.propTypes = {
