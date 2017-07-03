@@ -38,6 +38,10 @@ export class SignUpView extends Component {
   };
 
   render() {
+    const { fanSelected, artistSelected } = this.state;
+    const formVisible = fanSelected || artistSelected;
+    console.log(formVisible);
+
     return (
       <PageLayout>
         <Segment>
@@ -63,8 +67,8 @@ export class SignUpView extends Component {
                 I am a signing up as a...
               </Card.Header>
             </Card.Content>
-            <Card.Content extra>
-              <div className='ui two buttons'>
+            <Card.Content className='signup-form-content' extra>
+              <div className='signup-role-selection ui two buttons'>
                 <Button
                   onMouseOver={() => this.setState({ fanHover: true })}
                   onMouseOut={() => this.setState({ fanHover: false })}
@@ -85,6 +89,7 @@ export class SignUpView extends Component {
                 </Button>
               </div>
               <SignUpForm role={this.state.role} colour={this.state.formColour} ribbons={false} />
+              {formVisible ? <div style={{marginTop: '-10px'}} /> : ''}
             </Card.Content>
             <Card.Content className='signup-login-link' extra>
               <span>Already have an account? <a style={{color: colourStringToHex(this.state.formColour)}} onClick={() => browserHistory.push('/login')}>Log in</a></span>

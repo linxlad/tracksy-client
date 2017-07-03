@@ -44,6 +44,7 @@ export class LoginView extends Component {
           <Card fluid>
             <Card.Content>
               <LoginForm colour={this.state.formColour} ribbons={false} />
+              <div style={{marginTop: '-10px'}} />
             </Card.Content>
             <Card.Content className='login-signup-link' extra>
               <span>Don't have an account yet? <a style={{color: colourStringToHex(this.state.formColour)}} onClick={() => browserHistory.push('/signup')}>Sign up</a></span>
