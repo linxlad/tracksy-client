@@ -5229,6 +5229,15 @@ react-element-to-jsx-string@^5.0.0:
     stringify-object "2.4.0"
     traverse "^0.6.6"
 
+react-facebook@^4.0.13:
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/react-facebook/-/react-facebook-4.0.13.tgz#f99d8d94f76440b708701bec284d90521029da35"
+  dependencies:
+    babel-runtime "^6.23.0"
+    can-use-dom "^0.1.0"
+    prop-types "^15.5.8"
+    react-spinner-children "^1.0.5"
+
 react-lazy-load@^3.0.10:
   version "3.0.12"
   resolved "https://office-npmjs.openobjects.com/react-lazy-load/-/react-lazy-load-3.0.12.tgz#2b841dfc3227e8119d033189d2c960ce384d0cb9"
@@ -5273,6 +5282,13 @@ react-slick@^0.14.11, react-slick@~0.14.2:
     json2mq "^0.2.0"
     object-assign "^4.1.0"
     slick-carousel "^1.6.0"
+
+react-spinner-children@^1.0.5:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-spinner-children/-/react-spinner-children-1.0.7.tgz#f74e6a7f4079b7b2f1cebc83c1aea0b5c77d60df"
+  dependencies:
+    prop-types "^15.5.10"
+    spin.js "^2.3.2"
 
 react-test-renderer@^15.5.4:
   version "15.5.4"
@@ -5905,6 +5921,10 @@ spdx-expression-parse@~1.0.0:
 spdx-license-ids@^1.0.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
+
+spin.js@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/spin.js/-/spin.js-2.3.2.tgz#6caa56d520673450fd5cfbc6971e6d0772c37a1a"
 
 sprintf-js@~1.0.2:
   version "1.0.3"

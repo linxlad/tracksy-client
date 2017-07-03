@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
-import { Container, Header, Grid, Image, Button, Icon } from 'semantic-ui-react';
+import { Container, Header, Grid, Image, Button, Message } from 'semantic-ui-react';
 import Layout from 'antd/lib/layout';
 import { MultiLine } from '../../components/MultiLine';
 import { Footer } from '../../components/Footer';
@@ -69,7 +69,12 @@ export class LandingLayout extends PureComponent {
 
   render() {
     return (
-      <Container fluid>
+      <Container className='landing-container' fluid>
+        <Message className='header-message'>
+          <Container className='message-container' type="text">
+            <Button basic color='black' className='login-button' onClick={() => browserHistory.push('/login')}>Login</Button>
+          </Container>
+        </Message>
         <Content>
           <div className="main-header">
             <div className="branding">

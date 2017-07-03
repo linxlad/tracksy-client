@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Header, Card, Button, Icon } from 'semantic-ui-react';
+import { browserHistory } from 'react-router';
+import { Container, Header, Card, Button, Icon, Segment } from 'semantic-ui-react';
 import PageLayout from '../../../layouts/PageLayout';
-import { signupColours as colours } from '../../../constants/colours';
+import { formColours as colours } from '../../../constants/colours';
 import { SignUpForm } from './SignUpForm';
 import './SignUpPage.scss';
 
@@ -10,7 +11,7 @@ const initialState = {
   artistHover: false,
   fanSelected: false,
   artistSelected: false,
-  role: 'fan'
+  role: null
 };
 
 export class SignUpView extends Component {
@@ -38,6 +39,14 @@ export class SignUpView extends Component {
   render() {
     return (
       <PageLayout>
+        <Segment>
+          <Header
+            style={{ fontSize: '30px', cursor: 'pointer' }}
+            textAlign='center'
+            className="login-header" onClick={() => browserHistory.push('/')}>
+            tracksy.
+          </Header>
+        </Segment>
         <Container className="signup-container">
           <Header as='h2' icon textAlign='center' className="signup-header">
             <Header.Content>
@@ -74,9 +83,9 @@ export class SignUpView extends Component {
                   Artist
                 </Button>
               </div>
+              <SignUpForm role={this.state.role} colour={this.state.formColour} ribbons={false} />
             </Card.Content>
           </Card>
-          <SignUpForm role={this.state.role} colour={this.state.formColour} ribbons={true} />
         </Container>
       </PageLayout>
     );

@@ -1,5 +1,16 @@
-.duck {
-  display: block;
-  width: 120px;
-  margin: 1.5rem auto;
+.ui.container.login-container {
+  padding-top: 20px;
+  max-width: 450px!important;
+
+  .login-header {
+    padding: 0 0 20px 0;
+  }
+
+  .card {
+    .content {
+      .header {
+        font-weight: lighter;
+      }
+    }
+  }
 }

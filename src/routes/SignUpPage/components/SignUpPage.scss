@@ -1,8 +1,16 @@
 .ui.container.signup-container {
-  padding-top: 50px;
+  padding-top: 20px;
   max-width: 450px!important;
 
   .signup-header {
-    padding: 0 0 40px 0;
+    padding: 0 0 20px 0;
+  }
+
+  .card {
+    .content {
+      .header {
+        font-weight: lighter;
+      }
+    }
   }
 }

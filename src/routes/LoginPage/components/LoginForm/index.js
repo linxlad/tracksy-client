@@ -4,16 +4,15 @@ import { Input, Button, Label, Divider, Icon } from 'semantic-ui-react';
 import FacebookProvider, { Login } from 'react-facebook';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import './SignUpForm.scss';
+import './LoginForm.scss';
 const FormItem = Form.Item;
 
-class SignUpFormComponent extends Component {
+class LoginFormComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      submitHover: false,
-      artistEncouragement: null
+      submitHover: false
     };
   }
 
@@ -40,68 +39,23 @@ class SignUpFormComponent extends Component {
     });
   };
 
-  handleFacebookResponse = (response) => {
-    console.log(response);
-  };
-
-  handleFacebookError = (error) => {
-    console.log(error);
-  };
-
-  handleArtistChange = () => {
-    this.setState({ artistEncouragement: '...this is sounding awesome' });
-  };
-
   /**
    * @return {XML}<
    */
   render() {
     const { getFieldDecorator, getFieldError } = this.props.form;
-    const { role, colour, ribbons } = this.props;
-
-    if (null === role) {
-      return null;
-    }
+    const { colour, ribbons } = this.props;
 
     const emailHasError = !!getFieldError('email');
     const passwordHasError = !!getFieldError('password');
-    const artistNameHasError = !!getFieldError('artistName');
-    let bandNameField = null;
-
-    if (role === 'artist') {
-      bandNameField = (
-        <FormItem>
-          <Label
-            style={!ribbons ? {border: 'none', padding: 0} : {}}
-            basic={!ribbons}
-            color={artistNameHasError ? 'red' : colour}
-            ribbon={ribbons}>
-            Artist/Band name
-          </Label>
-          {getFieldDecorator('artistName', {
-            rules: [
-              { required: true, message: 'Please enter your Artist/Band name' },
-              { type: 'string', message: 'Please enter a valid Artist/Band name' }
-            ],
-            initialValue: ''
-          })(
-            <div>
-              <Input fluid type="text" size="huge" error={artistNameHasError} onChange={() => this.handleArtistChange()}/>
-              <span>{this.state.artistEncouragement}</span>
-            </div>
-          )}
-        </FormItem>
-      );
-    }
 
     return (
-      <div className="signup-form-container">
-        <Divider/>
+      <div className="login-form-container">
         <FacebookProvider appId="121403878466788">
           <Login
             scope="email"
-            onResponse={(response) => this.handleFacebookResponse(response)}
-            onError={(error) => this.handleFacebookError(error)}
+            onResponse={(response) => console.log(response)}
+            onError={this.handleError}
             render={({ isLoading, isWorking, onClick }) => (
               <Button.Group fluid>
                 <Button
@@ -115,7 +69,7 @@ class SignUpFormComponent extends Component {
           />
         </FacebookProvider>
         <Divider horizontal>Or</Divider>
-        <Form onSubmit={this.handleSubmit} className="signup-form">
+        <Form onSubmit={this.handleSubmit} className="login-form">
           <FormItem>
             <Label
               style={!ribbons ? {border: 'none', padding: 0} : {}}
@@ -152,7 +106,6 @@ class SignUpFormComponent extends Component {
               <Input fluid type="password" size="huge" error={passwordHasError}/>
             )}
           </FormItem>
-          {bandNameField}
           <FormItem>
             <Button
               onMouseOver={() => this.handleSubmitMouseOver()}
@@ -160,10 +113,10 @@ class SignUpFormComponent extends Component {
               size='huge'
               loading={false}
               className=""
-              color={emailHasError || passwordHasError || artistNameHasError ? 'red' : colour}
+              color={emailHasError || passwordHasError ? 'red' : colour}
               basic={!this.state.submitHover}
               fluid>
-              Sign Up
+              Log in
             </Button>
           </FormItem>
         </Form>
@@ -192,4 +145,4 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch);
 };
 
-export const SignUpForm = connect(mapStateToProps, mapDispatchToProps)(Form.create()(SignUpFormComponent));
+export const LoginForm = connect(mapStateToProps, mapDispatchToProps)(Form.create()(LoginFormComponent));
