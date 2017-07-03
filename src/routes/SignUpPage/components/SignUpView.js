@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router';
 import { Container, Header, Card, Button, Icon, Segment } from 'semantic-ui-react';
 import PageLayout from '../../../layouts/PageLayout';
 import { formColours as colours } from '../../../constants/colours';
+import { colourStringToHex } from '../../../helpers/Colours';
 import { SignUpForm } from './SignUpForm';
 import './SignUpPage.scss';
 
@@ -49,9 +50,9 @@ export class SignUpView extends Component {
         </Segment>
         <Container className="signup-container">
           <Header as='h2' icon textAlign='center' className="signup-header">
-            <Header.Content>
-              Sign up
-            </Header.Content>
+            {/*<Header.Content>*/}
+              {/*Sign up*/}
+            {/*</Header.Content>*/}
             <Header.Subheader>
               This is the beginning of something beautiful.
             </Header.Subheader>
@@ -84,6 +85,9 @@ export class SignUpView extends Component {
                 </Button>
               </div>
               <SignUpForm role={this.state.role} colour={this.state.formColour} ribbons={false} />
+            </Card.Content>
+            <Card.Content className='signup-login-link' extra>
+              <span>Already have an account? <a style={{color: colourStringToHex(this.state.formColour)}} onClick={() => browserHistory.push('/login')}>Log in</a></span>
             </Card.Content>
           </Card>
         </Container>

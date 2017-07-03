@@ -7,6 +7,14 @@
   }
 
   .card {
+    .login-signup-link.extra.content {
+      span {
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
     .content {
       .header {
         font-weight: lighter;
