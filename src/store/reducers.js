@@ -13,8 +13,6 @@ export const injectReducer = (store, { key, reducer }) => {
     return;
   }
 
-  console.log(['injectReducer', reducer]);
-
   store.asyncReducers[key] = reducer;
   store.replaceReducer(makeRootReducer(store.asyncReducers));
 };
