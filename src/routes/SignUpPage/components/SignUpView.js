@@ -40,7 +40,6 @@ export class SignUpView extends Component {
   render() {
     const { fanSelected, artistSelected } = this.state;
     const formVisible = fanSelected || artistSelected;
-    console.log(formVisible);
 
     return (
       <PageLayout>

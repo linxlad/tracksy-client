@@ -4,6 +4,8 @@ import { Input, Button, Label, Divider, Icon } from 'semantic-ui-react';
 import FacebookProvider, { Login } from 'react-facebook';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
+import { signUpAction } from '../../modules/SignUp';
 import './SignUpForm.scss';
 const FormItem = Form.Item;
 
@@ -36,6 +38,7 @@ class SignUpFormComponent extends Component {
     event.preventDefault();
     this.props.form.validateFields((errors, values) => {
       if (!errors) {
+        this.props.signUpAction(values, (hasError) => console.log(hasError));
       }
     });
   };
@@ -57,7 +60,7 @@ class SignUpFormComponent extends Component {
    */
   render() {
     const { getFieldDecorator, getFieldError } = this.props.form;
-    const { role, colour, ribbons } = this.props;
+    const { role, colour, ribbons, signup } = this.props;
 
     if (null === role) {
       return null;
@@ -158,7 +161,7 @@ class SignUpFormComponent extends Component {
               onMouseOver={() => this.handleSubmitMouseOver()}
               onMouseOut={() => this.handleSubmitMouseOut()}
               size='huge'
-              loading={false}
+              loading={signup.loading}
               className=""
               color={emailHasError || passwordHasError || artistNameHasError ? 'red' : colour}
               basic={!this.state.submitHover}
@@ -177,18 +180,20 @@ class SignUpFormComponent extends Component {
  * @return {{changePasswordLoading: *, changePasswordSuccess: *, changePasswordError: *}}
  */
 const mapStateToProps = (state) => {
-  const {} = state;
+  const { signup } = state;
 
-  return {};
+  return {
+    signup: signup
+  };
 };
 
 /**
  * @param dispatch
- * @return {{settingsChangePassword: *}|B|N}
+ * @return {{signUpAction: *}|B|N}
  */
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-
+    signUpAction
   }, dispatch);
 };
 

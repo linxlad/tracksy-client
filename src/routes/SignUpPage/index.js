@@ -10,10 +10,12 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const SignUp = require('./containers/SignUpContainer').default;
-      const reducer = {}; /*require('./modules/signup').default;*/
 
-      /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'signup', reducer });
+      // ------------------------------------
+      // Reducers
+      // ------------------------------------
+      const signup = require('./modules/SignUp').default;
+      injectReducer(store, { key: 'signup', reducer: signup });
 
       /*  Return getComponent   */
       cb(null, SignUp);
