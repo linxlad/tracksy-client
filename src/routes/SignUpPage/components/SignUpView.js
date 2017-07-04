@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import { Container, Header, Card, Button, Icon, Segment } from 'semantic-ui-react';
 import PageLayout from '../../../layouts/PageLayout';
 import { formColours as colours } from '../../../constants/colours';
-import { colourStringToHex } from '../../../helpers/Colours';
+import { colourStringToHex } from '../../../utils/Colours';
 import { SignUpForm } from './SignUpForm';
 import './SignUpPage.scss';
 

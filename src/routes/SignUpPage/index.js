@@ -14,7 +14,7 @@ export default (store) => ({
       // ------------------------------------
       // Reducers
       // ------------------------------------
-      const signup = require('./modules/SignUp').default;
+      const signup = require('./reducers/SignUp').default;
       injectReducer(store, { key: 'signup', reducer: signup });
 
       /*  Return getComponent   */

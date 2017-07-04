@@ -5,7 +5,7 @@ import FacebookProvider, { Login } from 'react-facebook';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { signUpAction } from '../../modules/SignUp';
+import { signUpAction } from '../../actions/SignUp';
 import './SignUpForm.scss';
 const FormItem = Form.Item;
 

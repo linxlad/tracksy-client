@@ -17,7 +17,7 @@ export function colourStringToHex(colour) {
   };
 
   if (!colourKeyValuePair[colour]) {
-    return colourKeyValuePair['default'];
+    return colourKeyValuePair.default;
   }
 
   return colourKeyValuePair[colour];
